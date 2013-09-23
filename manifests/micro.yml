@@ -15,6 +15,10 @@ jobs:
   - cloud_controller_ng
   - gorouter
   - dea_next
+  - dea_logging_agent
+  - loggregator
+  - loggregatorrouter
+  - syslog_aggregator
 
 properties:
   domain: 192.168.10.10.xip.io
@@ -23,6 +27,28 @@ properties:
   app_domains:
     - 192.168.10.10.xip.io
 
+  loggregator:
+    maxRetainedLogMessages: 5
+    servers: 192.168.10.10:3456
+    router: 192.168.10.10:3456
+    status:
+      user: abc
+      password: abc
+      port: 5768
+
+  syslog_aggregator:
+    address: 192.168.10.10
+    port: 54321
+    log_email:
+      enabled: true
+      from_email: syslog_aggregator@163.com
+      from_password: passw0rd
+      to_email:
+      - xhhsld@163.com
+      smtp_server: smtp.163.com
+      smtp_port: 465
+      smtp_domain: 163.com
+  
   networks:
     apps: default
     management: default
@@ -50,10 +76,6 @@ properties:
     directory_server_protocol: http
 
   dea_next: *dea
-
-  syslog_aggregator:
-    address: 192.168.10.10
-    port: 54321
 
   databases: &databases
     db_scheme: postgres
