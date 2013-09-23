@@ -13,6 +13,11 @@ for process in \
     dea_next \
     dir_server \
     cloud_controller_ng \
+    dea_logging_agent \
+    nats_stream_forwarder \
+    syslog_aggregator \
+    loggregator \
+    loggregatorrouter \
     nats;
 do
     sudo /var/vcap/bosh/bin/monit stop $process
