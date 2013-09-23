@@ -20,7 +20,12 @@ for process in \
     uaa_cf-registrar \
     warden \
     dea_next \
-    dir_server;
+    dir_server \
+    loggregatorrouter \
+    loggregator \
+    syslog_aggregator \
+    nats_stream_forwarder \
+    dea_logging_agent;
 do
     sudo /var/vcap/bosh/bin/monit start $process
     sleep 5
