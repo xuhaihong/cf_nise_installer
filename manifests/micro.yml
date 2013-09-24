@@ -28,8 +28,8 @@ properties:
     - 192.168.10.10.xip.io
 
   loggregator:
-    maxRetainedLogMessages: 5
-    servers: 192.168.10.10:3456
+    maxRetainedLogMessages: 10
+    servers: ["192.168.10.10:3456"]
     router: 192.168.10.10:3456
     status:
       user: abc
