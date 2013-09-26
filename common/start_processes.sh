@@ -6,7 +6,8 @@ sleep 5
 for process in \
     postgres \
     nats \
-    cloud_controller_ng;
+    cloud_controller_ng \
+    cloud_controller_jobs;
 do
     sudo /var/vcap/bosh/bin/monit start $process
     sleep 30

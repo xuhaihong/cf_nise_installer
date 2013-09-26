@@ -12,6 +12,7 @@ for process in \
     warden \
     dea_next \
     dir_server \
+    cloud_controller_jobs \
     cloud_controller_ng \
     dea_logging_agent \
     nats_stream_forwarder \
