@@ -18,7 +18,7 @@ for process in \
     nats_stream_forwarder \
     syslog_aggregator \
     loggregator \
-    loggregatorrouter \
+    loggregator_trafficcontroller \
     nats;
 do
     sudo /var/vcap/bosh/bin/monit stop $process

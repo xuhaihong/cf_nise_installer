@@ -22,7 +22,7 @@ for process in \
     warden \
     dea_next \
     dir_server \
-    loggregatorrouter \
+    loggregator_trafficcontroller \
     loggregator \
     syslog_aggregator \
     nats_stream_forwarder \

@@ -17,10 +17,11 @@ jobs:
   - dea_next
   - dea_logging_agent
   - loggregator
-  - loggregatorrouter
+  - loggregator_trafficcontroller
   - syslog_aggregator
 
 properties:
+  zone: z1
   domain: 192.168.10.10.xip.io
   system_domain: 192.168.10.10.xip.io
   system_domain_organization: system_domain
@@ -28,13 +29,17 @@ properties:
     - 192.168.10.10.xip.io
 
   loggregator:
+    disableEmailDomainAuthorization: true
     maxRetainedLogMessages: 10
-    servers: ["192.168.10.10:3456"]
-    router: 192.168.10.10:3456
+    servers:
+        z1:
+        - 192.168.10.10
+    trafficcontroller: 192.168.10.10:3456
+    incoming_port: 3456
+    outgoing_port: 8080
     status:
       user: abc
       password: abc
-      port: 5768
 
   syslog_aggregator:
     address: 192.168.10.10
