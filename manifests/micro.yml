@@ -36,7 +36,7 @@ properties:
         - 192.168.10.10
     trafficcontroller: 192.168.10.10:3456
     incoming_port: 3456
-    outgoing_port: 8080
+    outgoing_port: 8081
     status:
       user: abc
       password: abc
