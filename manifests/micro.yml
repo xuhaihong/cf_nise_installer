@@ -30,10 +30,10 @@ properties:
 
   loggregator:
     disableEmailDomainAuthorization: true
-    maxRetainedLogMessages: 10
+    maxRetainedLogMessages: 1000
     servers:
         z1:
-        - 192.168.10.10
+        - 192.168.10.10:8082
     trafficcontroller: 192.168.10.10:3456
     incoming_port: 3456
     outgoing_port: 8081
