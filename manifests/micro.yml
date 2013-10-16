@@ -17,7 +17,7 @@ jobs:
   - dea_next
   - dea_logging_agent
   - loggregator
-  - loggregatorrouter
+  - loggregator_trafficcontroller
   - syslog_aggregator
 
 properties:
