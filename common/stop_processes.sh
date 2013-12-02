@@ -4,7 +4,6 @@ sudo /var/vcap/bosh/bin/monit
 sleep 5
 
 for process in \
-    nats_stream_forwarder \
     cloud_controller_jobs \
     nginx_ccng \
     gorouter \
@@ -20,7 +19,6 @@ for process in \
     nats_stream_forwarder \
     syslog_aggregator \
     loggregator \
-    loggregator_trafficcontroller \
     nats;
 do
     sudo /var/vcap/bosh/bin/monit stop $process

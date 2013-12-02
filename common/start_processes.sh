@@ -13,7 +13,6 @@ do
 done;
 
 for process in \
-    nats_stream_forwarder \
     cloud_controller_jobs \
     nginx_ccng \
     gorouter \
@@ -23,7 +22,6 @@ for process in \
     warden \
     dea_next \
     dir_server \
-    loggregator_trafficcontroller \
     loggregator \
     syslog_aggregator \
     dea_logging_agent;
