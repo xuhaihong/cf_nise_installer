@@ -10,71 +10,20 @@ jobs:
 - name: micro_ng
   template:
   - nats
-  - health_manager_next
+  - nats_stream_forwarder
+  - hm9000
   - uaa
   - cloud_controller_ng
   - gorouter
   - dea_next
-  - dea_logging_agent
-  - loggregator
-  - loggregator_trafficcontroller
-  - syslog_aggregator
 
 properties:
-  zone: z1
   domain: 192.168.10.10.xip.io
   system_domain: 192.168.10.10.xip.io
   system_domain_organization: system_domain
   app_domains:
     - 192.168.10.10.xip.io
 
-  loggregator_endpoint:
-    host: 192.168.10.10
-    port: 3456
-    shared_secret: loggregator-secret
-
-  loggregator:
-    maxRetainedLogMessages: 1000
-    servers:
-        z1:
-        - 192.168.10.10
-    incoming_port: 3456
-    outgoing_port: 8081
-    status:
-      user: log
-      password: log
-      port: 9001
-
-  traffic_controller:
-    zone: z1
-    host: 0.0.0.0
-    status:
-      user: traffic
-      password: traffic
-      port: 9002
-
-  dea_logging_agent:
-    status:
-      user: dealog
-      password: dealog
-      port: 9000
-
-  ssl:
-    skip_cert_verify: true
-
-  syslog_aggregator:
-    address: 192.168.10.10
-    port: 54321
-    log_email:
-      enabled: true
-      from_email: syslog_aggregator@163.com
-      from_password: passw0rd
-      to_email:
-      - xhhsld@163.com
-      smtp_server: smtp.163.com
-      smtp_port: 465
-      smtp_domain: 163.com
-  
   networks:
     apps: default
     management: default
@@ -103,6 +52,10 @@ properties:
     directory_server_protocol: http
 
   dea_next: *dea
+
+  syslog_aggregator:
+    address: 192.168.10.10
+    port: 54321
 
   databases: &databases
     db_scheme: postgres

@@ -6,30 +6,13 @@ if (rvm >/dev/null 2>&1); then
     exit 1
 fi
 
-# Git bootstrap
-if  ( ! which git || [ `git --version | awk '{print $3}'` = "1.7.0.4" ] ); then
-    (
-        # using a newer git
-        sudo apt-get -y install python-software-properties
-        sudo add-apt-repository ppa:git-core/ppa
-        sudo apt-get update
-        sudo apt-get -y install git
-    )
-fi
-
 # required to compile a gem native extension of CCNG
 sudo apt-get -y install libmysqlclient-dev libpq-dev libsqlite3-dev
 
 # Nise BOSH
-if [ ! -d nise_bosh ]; then
-    git clone https://github.com/nttlabs/nise_bosh.git
-fi
+./local/clone_nise_bosh.sh
 (
     cd nise_bosh
-    if [ "" != "$NISE_BOSH_REV" ]; then
-        git checkout $NISE_BOSH_REV
-    fi
-    echo Use nise_bosh of revision: `git rev-list --max-count=1 HEAD` in $0
     sudo ./bin/init
 )
 
